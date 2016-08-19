@@ -1,0 +1,11 @@
+wb = xlsx_package.workbook
+wb.styles do |style|
+  header_cell = style.add_style(b: true)
+
+  wb.add_worksheet(name: "Products") do |sheet|
+    sheet.add_row ["Title", "Price"], :style=>[header_cell, header_cell]
+    @products.each do |product|
+     sheet.add_row [product.title, product.price]
+    end
+  end
+end
